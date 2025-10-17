@@ -7,8 +7,11 @@ docker compose build --no-cache forum
 ## Affichage détaillé du processus de build du container.
 docker compose build --progress=plain <nom du container>
 
-## Pour démarrer un container.
+## Pour démarrer un container à partir d'une image.
 docker start <nom ou id du container>
+
+## Pour arrêter un container.
+docker stop <nom ou ID du container >
 
 ## Pour entrer dans le terminal du container.
 docker exec -ti <nom du container> bash
@@ -63,3 +66,9 @@ docker images -a
 
 ## Supprimer une image.
 docker image rm <id ou TAG>
+
+## Lancer un container depuis une image déjà existante.
+docker run -d --name <nom> -p <port ordinateur>:<port container> <nom du REPOSITORY que nous pouvons trouver dans docker images>
+
+## Lance un container déjà existant défini dans un docker-compose.yml. Ce n'est pas l'image mais le service qui est lancé.
+docker compose restart forum
