@@ -70,3 +70,9 @@ tree -L2
 
 ## Arbre avec les fichiers cachés.
 tree -a
+
+# Copier un dépôt avec son historique vers un autre dépôt
+git clone --mirror https://zone01normandie.org/git/nleonard/forum forum-mirror
+cd forum-mirror
+git remote add github https://github.com/NL-Des/Forum.git
+git push --mirror github
