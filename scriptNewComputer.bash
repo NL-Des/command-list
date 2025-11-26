@@ -102,6 +102,10 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 echo "Installation de Python."
 sudo apt install -y python3-pip
 
+# Installation de SQLite3.
+echo "Installation de SQLite3."
+sudo apt install -y sqlite3 libsqlite3-dev
+
 # Installation de Docker et Docker Compose.
 echo "Installation de Docker et Docker Compose"
 sudo apt install -y ca-certificates curl gnupg lsb-release
