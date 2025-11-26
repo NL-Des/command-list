@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#Mettre le GO.
-
 echo "Lancement du script d'installation des systèmes pour un nouvel ordinateur."
 
 # Mise à jour du système.
