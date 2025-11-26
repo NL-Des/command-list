@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Mettre le GO.
+
 echo "Lancement du script d'installation des systèmes pour un nouvel ordinateur."
 
 # Mise à jour du système.
@@ -9,6 +11,9 @@ sudo apt update && sudo apt upgrade -y
 # Installation de programmes courants.
 echo "Installation outils de bases."
 sudo apt install -y git curl wget vim htop
+
+# Installation de Neofetch (Affichage des statistiques de l'ordinateur dans la console (taper neofetch))
+sudo apt install neofetch
 
 # Installation navigateur Brave.
 echo "Installtion de Brave."
@@ -87,6 +92,10 @@ git config --global user.email "$email"
 
 echo "Configuration GitHub terminée !"
 
+# Installation de GO.
+echo "Installation de GO."
+sudo apt install -y golang-go
+
 # Installation de NodeJS.
 echo "Installation de Node JS."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
@@ -115,3 +124,6 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt install -y docker-ce docker-ce-cli containerd.io
+
+# Pour afficher les caractéristiques de l'ordinateur.
+neofetch
