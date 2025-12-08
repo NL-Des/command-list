@@ -125,3 +125,6 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 
 # Pour afficher les caractéristiques de l'ordinateur.
 neofetch
+
+# Message de Fin.
+echo "Votre système est mis à niveau."
