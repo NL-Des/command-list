@@ -1,8 +1,8 @@
-# 📦 Commandes Docker — Tableau réorganisé
+# Tableau Commandes Docker
 
 ---
 
-## 🚀 Construction & lancement
+## Construction & lancement
 
 | Action | Commande |
 |--------|----------|
@@ -14,7 +14,7 @@
 
 ---
 
-## ▶️ Démarrage / Arrêt / Suppression des containers
+## Démarrage / Arrêt / Suppression des containers
 
 | Action | Commande |
 |--------|----------|
@@ -26,7 +26,7 @@
 
 ---
 
-## 🖥️ Interaction avec un container
+## Interaction avec un container
 
 | Action | Commande |
 |--------|----------|
@@ -37,7 +37,7 @@
 
 ---
 
-## 📋 Inspection & informations
+## Inspection & informations
 
 | Action | Commande |
 |--------|----------|
@@ -49,7 +49,7 @@
 
 ---
 
-## 🧹 Nettoyage
+## Nettoyage
 
 | Action | Commande |
 |--------|----------|
@@ -58,7 +58,7 @@
 
 ---
 
-## 📦 Volumes
+## Volumes
 
 | Action | Commande |
 |--------|----------|
@@ -68,7 +68,7 @@
 
 ---
 
-## 🌐 Réseaux
+## Réseaux
 
 | Action | Commande |
 |--------|----------|

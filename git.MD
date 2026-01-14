@@ -1,10 +1,10 @@
-# 📘 Tableau des commandes Git
+# Tableau des commandes Git
 
 > Taper **Q** pour quitter certaines commandes (ex : `git log`).
 
 ---
 
-## 🏁 Initialisation
+## Initialisation
 
 | Action | Commande |
 |--------|----------|
@@ -12,7 +12,7 @@
 
 ---
 
-## 🚀 Procédure d’envoi (push)
+## Procédure d’envoi (push)
 
 | Action | Commande |
 |--------|----------|
@@ -22,7 +22,7 @@
 
 ---
 
-## 📥 Récupération & clonage
+## Récupération & clonage
 
 | Action | Commande |
 |--------|----------|
@@ -32,7 +32,7 @@
 
 ---
 
-## 🌿 Gestion des branches
+## Gestion des branches
 
 | Action | Commande |
 |--------|----------|
@@ -45,7 +45,7 @@
 
 ---
 
-## 📂 Suivi des fichiers
+## Suivi des fichiers
 
 | Action | Commande |
 |--------|----------|
@@ -53,7 +53,7 @@
 
 ---
 
-## 🕓 Historique & inspection
+## Historique & inspection
 
 | Action | Commande |
 |--------|----------|
@@ -63,7 +63,7 @@
 
 ---
 
-## 🧹 Suppression & nettoyage
+## Suppression & nettoyage
 
 | Action | Commande |
 |--------|----------|
@@ -73,7 +73,7 @@
 
 ---
 
-## 🌳 Arborescence du projet (commande `tree`)
+## Arborescence du projet
 
 | Action | Commande |
 |--------|----------|
