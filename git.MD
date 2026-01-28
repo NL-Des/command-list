@@ -73,6 +73,16 @@
 
 ---
 
+## Annuler le suivi d'un fichier dans GIT
+
+| Action | Commande |
+|--------|----------|
+| Arrêt de suivit de GIT du fichier | `git rm --cached <nom_du_fichier>` |
+| Arrêt de suivit de GIT du dossier | `git rm --cached <dossier/>` |
+| Commit à faire pour archiver la décision | `git commit -m <Message d'explication>` |
+
+---
+
 ## Arborescence du projet
 
 | Action | Commande |
