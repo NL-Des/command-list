@@ -28,3 +28,9 @@
 | Remplacer dans le fichier | Ctrl + H |
 | Recherche globale | Ctrl + Shift + F |
 | Fermer la recherche globale | Ctrl + Shift + E |
+
+### Dans le terminal
+| Action | Raccourci |
+|--------|-----------|
+| Supprimer un mot | Ctrl + w |
+| Supprimer une ligne | Ctrl + u |
