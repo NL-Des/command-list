@@ -1,23 +1,36 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "Lancement du script d'installation des langages de développements et des technos."
 
-# Golang
-echo "Installation de Golang (ou dit GO)."
-sudo apt install -y golang-go
+install_apt_if_missing() {
+    local check_cmd="$1"; shift
+    if command -v "$check_cmd" &>/dev/null; then
+        echo "$check_cmd déjà installé, on passe."
+    else
+        sudo apt install -y "$@"
+    fi
+}
 
-    # Packages pour GO
-    # Bcrypt aide à chiffrer les données.
-    echo "Installation du package GO Bcrypt."
-    go get golang.org/x/crypto/bcrypt
+install_golang() {
+    echo "Installation de Golang."
+    install_apt_if_missing go golang-go
 
-    # uuid est un package Google pour mieux générer des UUID(Universally Unique Identifiers).
-    echo "Installation du package GO UUID."
-    go get github.com/google/uuid
+    echo "Préchargement des packages GO Bcrypt et UUID dans le cache des modules."
+    local tmp_dir
+    tmp_dir=$(mktemp -d)
+    (cd "$tmp_dir" && go mod init warmup &>/dev/null && \
+        go get golang.org/x/crypto/bcrypt github.com/google/uuid)
+    rm -rf "$tmp_dir"
+}
 
-# NodeJS.
-echo "Installation de Node JS."
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+install_nodejs() {
+    echo "Installation de Node JS."
+    if [ -d "$HOME/.nvm" ]; then
+        echo "NVM déjà installé, on passe."
+    else
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    fi
 
     # Chargement du npm
     export NVM_DIR="$HOME/.nvm"
@@ -25,26 +38,59 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
     # Installation depuis les données du npm
     nvm install --lts
+}
 
-# Python.
-echo "Installation de Python."
-sudo apt install -y python3-pip
+install_python() {
+    echo "Installation de Python."
+    install_apt_if_missing pip3 python3-pip
+}
 
-# SQLite3.
-echo "Installation de SQLite3."
-sudo apt install -y sqlite3 libsqlite3-dev
+install_sqlite() {
+    echo "Installation de SQLite3."
+    install_apt_if_missing sqlite3 sqlite3 libsqlite3-dev
+}
 
-# Docker et Docker Compose en format CLI.
-echo "Installation de Docker et Docker Compose"
-sudo apt install ca-certificates curl gnupg -y
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
-  https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+install_rust() {
+    echo "Installation de Rust (via rustup)."
+    if command -v rustc &>/dev/null; then
+        echo "Rust déjà installé, on passe."
+    else
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        # shellcheck disable=SC1091
+        source "$HOME/.cargo/env"
+    fi
+    rustc --version
+    cargo --version
+}
+
+install_docker() {
+    echo "Installation de Docker et Docker Compose"
+    if command -v docker &>/dev/null; then
+        echo "Docker déjà installé, on passe."
+        return
+    fi
+
+    sudo apt install ca-certificates curl gnupg -y
+    sudo install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+      https://download.docker.com/linux/ubuntu \
+      $(lsb_release -cs) stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt update
+    sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+    sudo usermod -aG docker "$USER" #Pour obtenir le droit d'utiliser les commande sans utiliser tout le temps sudo et devoir rentre notre mot de passe.
+}
+
 sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-sudo usermod -aG docker $USER #Pour obtenir le droit d'utiliser les commande sans utiliser tout le temps sudo et devoir rentre notre mot de passe.
+
+install_golang
+install_nodejs
+install_python
+install_sqlite
+install_rust
+install_docker
+
+echo "Installation terminée."

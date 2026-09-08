@@ -1,5 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
 # Installation d'extensions VSCode.
 echo "Installation des extensions VSCode."
+
+if ! command -v code > /dev/null; then
+    echo "Erreur : la commande 'code' est introuvable. Installez VSCode avant de lancer ce script." >&2
+    exit 1
+fi
 
 # Extensions de conforts.
 code --install-extension esbenp.prettier-vscode          # Prettier
@@ -7,7 +15,6 @@ code --install-extension ms-vscode-remote.remote-containers # Dev Containers
 
 # Extensions Git.
 code --install-extension eamodio.gitlens                 # GitLens
-code --install-extension mhutchie.git-graph              # Git Graph
 
 # Extension Docker.
 code --install-extension ms-azuretools.vscode-containers # Docker

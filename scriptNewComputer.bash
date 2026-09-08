@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "Lancement du script d'installation des systèmes pour un nouvel ordinateur."
 
@@ -10,12 +11,11 @@ sudo apt update && sudo apt upgrade -y
 echo "Installation outils de bases."
 sudo apt install -y git curl wget vim htop
 
-# Installation de Neofetch (Affichage des statistiques de l'ordinateur dans la console (taper neofetch))
-sudo apt install neofetch
+# Installation de Fastfetch (Affichage des statistiques de l'ordinateur dans la console (taper fastfetch))
+sudo apt install -y fastfetch
 
 # Installation navigateur Brave.
 echo "Installtion de Brave."
-sudo apt install -y curl
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
@@ -53,6 +53,8 @@ sudo apt install -y vlc
 
 # Installation de Codecs Multimédias.
 echo "Installation de Codecs Multimédias."
+sudo add-apt-repository -y multiverse
+sudo apt update
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 sudo apt install -y ubuntu-restricted-extras
 
@@ -91,7 +93,7 @@ git config --global user.email "$email"
 echo "Configuration GitHub terminée !"
 
 # Pour afficher les caractéristiques de l'ordinateur.
-neofetch
+fastfetch
 
 # Message de Fin.
 echo "Votre système est mis à niveau."
