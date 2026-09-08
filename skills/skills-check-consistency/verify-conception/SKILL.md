@@ -22,6 +22,8 @@ Les 6 axes sont chacun définis par leur propre skill, invocable aussi de façon
    - **Ambiguïté à trancher** : le texte est cohérent mais laisse une question ouverte non documentée dans `questions_a_approfondir.md`.
    - **Suggestion** : amélioration de clarté, non bloquante.
 
+   Si deux agents d'axes différents relèvent **indépendamment le même point** (même fichier(s), même problème signalé sous un angle différent), fusionner leurs constats en une seule entrée du rapport et le signaler explicitement comme confirmé par plusieurs axes — c'est un signal de robustesse du constat, pas un doublon à ignorer silencieusement ni à supprimer.
+
 5. **Présenter le rapport** à l'utilisateur (texte direct dans la réponse, pas de fichier créé sauf demande explicite). Terminer en rappelant qu'il peut soit corriger lui-même les fichiers de `references/`, soit invoquer `/resolve-conception-issues` pour une résolution guidée point par point.
 
 ## Garde-fous

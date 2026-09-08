@@ -17,6 +17,7 @@ Ce skill inspecte en lecture seule la conception du chiffrement dans `references
    - L'emplacement des clés — clé publique locale, clé privée jamais locale — de façon cohérente.
    - Le statut de la signature du manifeste — doit être marqué bloqué/reporté partout où il apparaît, sans contradiction.
    - La cohérence globale avec `chiffrement.md` et `vue_ensemble.md`.
+   - Pour chaque diagramme mermaid rencontré dans ces fichiers : que le **style de trait** (plein = flux systématique/inconditionnel, pointillé = flux conditionnel/décisionnel) reflète bien la même conditionnalité que le texte qui l'entoure, pas seulement le contenu textuel des nœuds.
 
 3. **Pour chaque point relevé**, citer le texte exact du problème avec son fichier, et le classifier :
    - **Incohérence avérée** : deux fichiers se contredisent, ou un renvoi pointe vers du contenu inexistant.

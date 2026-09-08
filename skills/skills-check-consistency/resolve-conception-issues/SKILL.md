@@ -21,9 +21,11 @@ Ce skill transforme les points relevés par une inspection de cohérence (`/veri
    - Toujours proposer 2 à 4 options concrètes de résolution, dont systématiquement une option « laisser tel quel / je m'en occupe moi-même ».
    - Ne jamais présumer la réponse : si plusieurs résolutions sont plausibles, les présenter toutes plutôt que d'en recommander une seule sans alternative.
 
-4. **Appliquer immédiatement** chaque correction choisie via `Edit` (jamais via réécriture complète sauf fichier nouveau), avant de poser le lot de questions suivant — ne pas accumuler toutes les décisions puis tout appliquer d'un coup, pour que l'utilisateur voie l'effet de ses choix au fur et à mesure.
+4. **Avant d'appliquer une correction textuelle répétée** (un renvoi cassé, une formulation à remplacer), **rechercher (grep) toutes les occurrences** du même renvoi/formulation dans le(s) fichier(s) concerné(s) — pas seulement la ligne citée dans le rapport source. Une incohérence de ce type apparaît rarement une seule fois : corriger uniquement la ligne citée, sans vérifier le reste du fichier, laisse fréquemment des résidus identiques ailleurs (constaté en pratique : un renvoi cassé vers un même fichier cible, présent à 3 endroits d'un même document, n'a été corrigé qu'à 1 endroit faute de cette recherche).
 
-5. **Terminer par un résumé** : liste des fichiers modifiés avec un résumé d'une ligne par changement, et liste des points explicitement laissés en l'état (avec la raison si donnée par l'utilisateur).
+5. **Appliquer immédiatement** chaque correction choisie via `Edit` (jamais via réécriture complète sauf fichier nouveau), avant de poser le lot de questions suivant — ne pas accumuler toutes les décisions puis tout appliquer d'un coup, pour que l'utilisateur voie l'effet de ses choix au fur et à mesure.
+
+6. **Terminer par un résumé** : liste des fichiers modifiés avec un résumé d'une ligne par changement, et liste des points explicitement laissés en l'état (avec la raison si donnée par l'utilisateur).
 
 ## Garde-fous
 

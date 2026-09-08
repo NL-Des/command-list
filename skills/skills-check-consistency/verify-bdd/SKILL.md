@@ -16,6 +16,7 @@ Ce skill inspecte en lecture seule la conception de la persistance (bases locale
    - Le statut « reporté » du schéma détaillé — s'il est bien marqué comme tel partout où il est mentionné, sans contradiction.
    - Une formulation uniforme de ce report d'un fichier à l'autre.
    - Le rôle de `DB_local` — une destination d'export parmi d'autres, jamais présentée comme un buffer obligatoire du pipeline.
+   - Pour chaque diagramme mermaid rencontré dans ces fichiers : que le **style de trait** (plein = flux systématique/inconditionnel, pointillé = flux conditionnel/décisionnel) reflète bien la même conditionnalité que le texte qui l'entoure — un diagramme peut afficher `DB_local` comme une destination systématique (trait plein) alors que le texte la décrit comme conditionnelle au même titre que les autres backends ; ce type d'écart n'est pas détectable en lisant seulement les labels des nœuds.
 
 3. **Pour chaque point relevé**, citer le texte exact du problème avec son fichier, et le classifier :
    - **Incohérence avérée** : deux fichiers se contredisent, ou un renvoi pointe vers du contenu inexistant.
